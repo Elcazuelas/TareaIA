@@ -1,32 +1,32 @@
 class Nodo:
-    def init(self, nombre):
+    def ___init__(self, nombre):
         self.nombre = nombre
         self.aristas = []
 
-    def agregar_arista(self, nodo_destino, distancia):
-        self.aristas.append(Arista(self, nodo_destino, distancia))
+    def agregar_arista(self, nodoDest, distancia):
+        self.aristas.append(Arista(self, nodoDest, distancia))
 
 class Arista:
-    def init(self, nodo_a, nodo_b, distancia):
-        self.nodo_a = nodo_a
-        self.nodo_b = nodo_b
+    def __init__(self, nodoA, nodoB, distancia):
+        self.nodoA = nodoA
+        self.nodoB = nodoB
         self.distancia = distancia
 
 class Ciudad:
-    def init(self):
+    def __init__(self):
         self.mapa = {}
 
     def agregar_nodo(self, nombre):
         nodo = Nodo(nombre)
         self.mapa[nombre] = nodo
 
-    def conectar_calles(self, nombre_nodo_a, nombre_nodo_b, distancia):
-        nodo_a = self.mapa.get(nombre_nodo_a)
-        nodo_b = self.mapa.get(nombre_nodo_b)
+    def conectar_calles(self, nombre_nodoA, nombre_nodoB, distancia):
+        nodoA = self.mapa.get(nombre_nodoA)
+        nodoB = self.mapa.get(nombre_nodoB)
 
-        if nodo_a and nodo_b:
-            nodo_a.agregar_arista(nodo_b, distancia)
-            nodo_b.agregar_arista(nodo_a, distancia)
+        if nodoA and nodoB:
+            nodoA.agregarArista(nodoB, distancia)
+            nodoB.agregarArista(nodoA, distancia)
 
     def obtener_nodo(self, nombre):
         return self.mapa.get(nombre)
