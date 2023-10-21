@@ -1,9 +1,9 @@
 class Nodo:
-    def ___init__(self, nombre):
+    def __init__(self, nombre):
         self.nombre = nombre
         self.aristas = []
 
-    def agregar_arista(self, nodoDest, distancia):
+    def agregarArista(self, nodoDest, distancia):
         self.aristas.append(Arista(self, nodoDest, distancia))
 
 class Arista:
