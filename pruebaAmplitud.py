@@ -29,6 +29,35 @@ def bfs(ciudad, nombre_nodo_inicio, nombre_nodo_destino):
 
     return None  # Si no se encontró un camino
 
+def dfs(ciudad, nombre_nodo_inicio, nombre_nodo_destino):
+    nodo_inicio = ciudad.obtener_nodo(nombre_nodo_inicio)
+    nodo_destino = ciudad.obtener_nodo(nombre_nodo_destino)
+
+    if nodo_inicio is None or nodo_destino is None:
+        return None
+
+    visitados = set()
+    pila = []
+    pila.append([nodo_inicio])
+
+    while pila:
+        camino = pila.pop()
+        nodo_actual = camino[-1]
+
+        if nodo_actual == nodo_destino:
+            return camino
+
+        if nodo_actual not in visitados:
+            for arista in nodo_actual.aristas:
+                nodo_vecino = arista.nodoB
+                nuevo_camino = list(camino)
+                nuevo_camino.append(nodo_vecino)
+                pila.append(nuevo_camino)
+
+            visitados.add(nodo_actual)
+
+    return None  # Si no se encontró un camino
+
 if __name__ == "__main__":
     ciudad = Ciudad()
 
