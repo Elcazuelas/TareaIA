@@ -1,4 +1,4 @@
-from ciudad import Ciudad  # Importa las clases desde el otro archivo
+from Ciudad import Ciudad  # Importa las clases desde el otro archivo
 
 def bfs(ciudad, nombre_nodo_inicio, nombre_nodo_destino):
     nodo_inicio = ciudad.obtener_nodo(nombre_nodo_inicio)
@@ -100,24 +100,3 @@ def a_star(ciudad, nombre_nodo_inicio, nombre_nodo_destino):
                     abiertos.add(nodo_vecino)
 
     return None  # Si no se encontró un camino
-
-if __name__ == "__main__":
-    ciudad = Ciudad()
-
-    ciudad.agregar_nodo("A")
-    ciudad.agregar_nodo("B")
-    ciudad.agregar_nodo("C")
-    ciudad.agregar_nodo("D")
-
-    ciudad.conectar_calles("A", "B", 1)
-    ciudad.conectar_calles("B", "C", 2)
-    ciudad.conectar_calles("B", "D", 1)
-    ciudad.conectar_calles("C", "D", 2)
-
-    camino = bfs(ciudad, "A", "C")
-
-    if camino:
-        nombres_nodos = [nodo.nombre for nodo in camino]
-        print("Camino encontrado:", " -> ".join(nombres_nodos))
-    else:
-        print("No se encontró un camino entre los nodos.")
