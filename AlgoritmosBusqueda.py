@@ -1,4 +1,4 @@
-from Ciudad import Ciudad  # Importa las clases desde el otro archivo
+from ciudad import Ciudad  # Importa las clases desde el otro archivo
 
 def bfs(ciudad, nombre_nodo_inicio, nombre_nodo_destino):
     nodo_inicio = ciudad.obtener_nodo(nombre_nodo_inicio)
